@@ -1,5 +1,5 @@
 package cn.spinrg_aop.helloworld;
-//123
+
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
@@ -16,16 +16,16 @@ public class ArithmeticCalculatorLoggingProxy {
 	public AtithmeticCalculator getLoggingProxy() {
 		
 		AtithmeticCalculator proxy=null;
-		//´úÀí¶ÔÏóÓÉÄÄÒ»¸öÀÛ¼ÓÆ÷½øĞĞ¼ÓÔØ
+		//ä»£ç†å¯¹è±¡ç”±å“ªä¸€ä¸ªç´¯åŠ å™¨è¿›è¡ŒåŠ è½½
 		ClassLoader loader=target.getClass().getClassLoader();
-		//´úÀí¶ÔÏóÀàĞÍ£¬¼´ÆäÖĞÓĞÄÄĞ©·½·¨
+		//ä»£ç†å¯¹è±¡ç±»å‹ï¼Œå³å…¶ä¸­æœ‰å“ªäº›æ–¹æ³•
 		Class[] interfaces = {AtithmeticCalculator.class};
-		//µ±µ÷ÓÃ´úÀí¶ÔÏóÆäÖĞ·½·¨Ê± ¸Ã´úÂëÖ´ĞĞ
+		//å½“è°ƒç”¨ä»£ç†å¯¹è±¡å…¶ä¸­æ–¹æ³•æ—¶ è¯¥ä»£ç æ‰§è¡Œ
 		InvocationHandler h=new InvocationHandler() {
 			/**
-			 * proxy ÕıÔÚ·µ»ØµÄ´úÀí¶ÔÏó Ò»°ãÇé¿öÏÂ ÔÚinvoke·½·¨ÖĞ²»Ê¹ÓÃ¸Ã¶ÔÏó
-			 * method ÕıÔÚ±»µ÷ÓÃµÄ·½·¨
-			 *  µ÷ÓÃ·½·¨´«ÈëµÄ²ÎÊı
+			 * proxy æ­£åœ¨è¿”å›çš„ä»£ç†å¯¹è±¡ ä¸€èˆ¬æƒ…å†µä¸‹ åœ¨invokeæ–¹æ³•ä¸­ä¸ä½¿ç”¨è¯¥å¯¹è±¡
+			 * method æ­£åœ¨è¢«è°ƒç”¨çš„æ–¹æ³•
+			 *  è°ƒç”¨æ–¹æ³•ä¼ å…¥çš„å‚æ•°
 			 */
 			@Override
 			public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
